@@ -1,0 +1,18 @@
+    .ORGI x4000
+LEA R0, VAL; R0 = x4018, P = 1
+AND R4, R4, #0; R4 = x0000, Z = 1
+ADD R4, R4, #-16; R4 = xFFF0, N = 1
+LDW R2, R0, #1; R2 = xFF11, N = 1
+LDB R2, R0, #2; R2 = X0011, P = 1
+LDB R2, R0, #3; R2 = xFFFF, N = 1
+LDB R2, R0, #2; R2 = x0011, P = 1
+STB R4, R0, #1; VAL = xF000
+STB R2, R0, #0; VAL = xF011
+LDW R2, R0, #0; R2 = xF011, N = 1
+STW R2, R0, #1; NUM = xF011
+HALT
+VAL .FILL xF400; x4018 
+NUM    .FILL xFF11; x401A
+NUMB   .FILL xF0F0; x401C
+.END
+
